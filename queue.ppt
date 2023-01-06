@@ -1,0 +1,103 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+queue<string> ppt;
+
+void masuk(queue<string>& ppt){
+  string masuk;
+  cout << "masukan antrian :";
+  cin >> masuk;
+  ppt.push(masuk);
+}
+
+void pertama(queue<string>& ppt){ 
+  if (ppt.empty()) {
+    cout << "antrian kosong" << endl;
+  } else {
+    cout << "antrian: " << ppt.front() << endl;
+    cout<<endl;
+  }
+}
+
+void belakang(queue<string>& ppt){
+  if (ppt.empty()){
+    cout << "antrian kosong"<<endl;
+  }else {
+    cout << "antrian: " << ppt.back() << endl;
+    cout << endl;
+  }
+}
+
+void jumlah(queue<string>& ppt){
+  if (ppt.empty()){
+    cout << "jumlah antrian :" << ppt.size() << endl;
+  }else {
+    cout << "jumlah antrian saat ini :" << ppt.size() <<endl;
+    cout<<endl;
+  }
+}
+
+void display_queue(queue<string>& ppt){
+
+    while(!ppt.empty()){
+        cout << ppt.front()<<", ";
+        ppt.pop();
+  }
+}
+
+void cek(queue<string>& ppt){
+  if (ppt.empty()){
+    cout << "saat ini antrian sedang kosong"<<endl;
+    cout<<endl;
+  }else {
+    cout << "saat ini jumlah antrian :" << ppt.size() <<endl;
+    cout << endl;
+  }
+}
+
+int main(){
+  int pil;
+  while (true) {
+    cout << "menu" <<endl;
+    cout << "1. masukan antrian" << endl;
+    cout << "2. lihat antrian pertama" <<endl;
+    cout << "3. lihat antrian terakhir" <<endl;
+    cout << "4. lihat jumlah natrian" <<endl;
+    cout << "5. hapus antrian " <<endl;
+    cout << "6. cek antrian" <<endl;
+    cout << "pilih :";
+    cin >> pil;
+    if(pil == 1){
+      cout<<endl;
+      masuk(ppt);
+    }
+    else if(pil == 2){
+        cout<<endl;
+        pertama(ppt);
+    }
+    else if(pil == 3){
+      cout<<endl;
+      belakang(ppt);
+    }
+    else if(pil == 4){
+      cout<<endl;
+      jumlah(ppt);
+    }
+    else if(pil == 5){
+      cout<<endl;
+      if (ppt.empty()){
+        cout << "antrian kosong" <<endl;
+      } else {
+        ppt.pop();
+        cout << "antrian sekarang :";
+        display_queue(ppt);
+      }
+      cout<<endl;
+    }
+    else if(pil == 6){
+      cout<<endl;
+      cek(ppt);
+    }
+  }
+  return 0;
+}
